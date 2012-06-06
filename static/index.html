@@ -1,0 +1,780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Getting started with Backbone and Rails</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/styles.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/1">
+<h1>Getting started with Backbone and Rails</h1>
+
+<h2>25 things you need to know</h2>
+
+<h3>Magma Rails June 6, 2012</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/2">
+<h2>Follow me on Twitter</h2>
+
+<p><a href="http://twitter.com/leshill">http://twitter.com/leshill</a></p>
+
+<h2>Follow me on github</h2>
+
+<p><a href="http://github.com/leshill">http://github.com/leshill</a></p>
+
+<p class="notes">I write code at CareZone.com in Seattle, I am the co-host of the Ruby 5,
+you may have used one of the gems I work on (if you are using Cucumber, try
+Turnip), I have been using Ruby and Rails since 2008 and JavaScript since 1996!</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/3">
+<h1>Why JavaScript client-side frameworks?</h1>
+
+<p class="notes">Rails 1.0 was released on 2005/12/13
+What is driving this?</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/4">
+<h1>Everybody is doing it</h1>
+
+<p class="notes">Who uses jQuery, Prototype, or similar?
+Who uses Backbone.js, Ember.js, or similar?
+These frameworks are seeing lots of use -- apps are going beyond unobtrusive</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/5">
+<h1>Your JavaScript is out of control</h1>
+
+<p>.notes
+We always used JavaScript, now we have a lot more if it!
+Web-apps are evolving into full featured clients
+More features == more code</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/6">
+<h1>Response time matters</h1>
+
+<blockquote><p>responsiveness is a basic user interface design rule that's dictated by human needs, not by individual technologies</p></blockquote>
+
+<p><cite>
+  <a href="http://www.useit.com/alertbox/response-times.html">Jakob Nielsen's Alertbox, June 21, 2010</a>
+</cite></p>
+
+<p class="notes">A little UJS to close the flash box is not going to cut it.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/7">
+<h1>Backbone.js</h1>
+
+<p><a href="http://backbonejs.org">http://backbonejs.org</a></p>
+
+<p><a href="http://underscorejs.org">http://underscorejs.org</a></p>
+
+<p><a href="http://jquery.com">http://jquery.com</a></p>
+
+<p><a href="http://zeptojs.com">http://zeptojs.com</a></p>
+
+<p class="notes">One of the original JavaScript MVC frameworks, written by Jeremey
+Ashkenas. Backbone is about 2 years old and has a very active community.
+And, unusually, without many opinions.
+This lack of opinions definitely makes it harder for the novice to jump-in.
+Really a very useful library with a thin framework on top. And most apps will need more
+You will need more, and this is a good thing.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/8">
+<h1>25 things you need to know about Backbone and Rails</h1>
+
+<p class="notes">There are many introductory tutorials and screencasts available for
+Backbone. You may not have read or seen one yet. That is OK!
+This talk is about 25 things you will need to know after the tutorial.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/9">
+<h1>1. Stop using JavaScript</h1>
+
+<p class="notes">JavaScript might be one of the most successful runtimes in history, available
+on all sorts of devices, and really a core part of the Web.
+And it is powerful, supporing OOP and functional programming as you see fit
+It is easy to gets started with a rich eco-system of libraries and plugins.
+All your favorite 'WOW' UIs are using JavaScript
+So...</p></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="talk/01_slide/10">
+<p><img src="./file/talk/javascript-the-good-parts-the-definitive-guide.jpg" alt="JavaScript: The Good Parts"/></p>
+
+<p class="notes">This...
+Douglas Crockford's JS:TGP
+Who has read this book?
+If you have not, it would be worth your while to do so</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/11">
+<h1>Use CoffeeScript</h1>
+
+<p><a href="http://coffeescript.org">http://coffeescript.org</a></p>
+
+<h2>Ruby-ish syntax</h2>
+
+<h2>Compiles to JavaScript</h2>
+
+<h2>Available by default in Rails</h2>
+
+<p class="notes">CoffeeScipt is an alternative, no scratch that, better syntax for
+JavaScript. It was written by Jeremey Ashkenas and the generates code that
+adheres to the TGP. CoffeeScript also some nice features baked right into the
+language.
+It has a nice syntax that is clean and terse
+If you take one thing away from this talk: use CoffeeScript</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/12">
+<h1>2. MVC</h1>
+
+<p class="notes">Everyone is familiar with MVC from Rails.
+MVC actually originated from a Smalltalk background and user interface widgets -
+there is very much a parallel to the JavaScript we are writing today
+MVC as a pattern organizes your code around three concepts
+The Model represents the application's state
+The View displays the apllications's state to the user
+The Controller interprets the actions of the user and acts to on the application state
+The core of MVC is event handling based on the observer pattern. The
+observer pattern allows a subject to notify a list of dependents of state
+changes.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/13">
+<h1>This is not Rails MVC</h1>
+
+<p class="notes">Rails has its own opinion about MVC. One difference from the original is
+that the Model != Persistence, when we talk about MVC on the client side the
+Model often does not even persist.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/14">
+<h1>Backbone is not exactly MVC either</h1>
+
+<p class="notes">So, Backbone does have an opinion, it is event-driven. Backbone is
+designed around events. That means that although we do not have a perfect MVC
+match, we can discuss Backbone in terms of MVC.
+There are four core classes in Backbone:
+The Model and Collection classes hold your application state
+The View class displays the application state
+The View class also interprets the user's actions and acts on the application
+state
+The Router (indirectly via the Browser location bar) also interprets the user's
+actions and acts on the application state</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/15">
+<h1>3. Backbone Models are not Rails Models</h1>
+
+<p class="notes">Avoid thinking of Backbone Models like ActiveRecord Models.  Yes,
+Backbone Models support simple persistence via ajax out of the box but think of
+Backbone Models as a data bag with event support, this is really useful when
+creating your dynamic UI</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/16">
+<h1>4. Backbone Models have no validations</h1>
+
+<p class="notes">There is support for validation built-in, provided by overriding the validate
+method. I recommend a Backbone plugin</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/17">
+<h1>Backbone.Validations</h1>
+
+<p><a href="https://github.com/n-time/backbone.validations">https://github.com/n-time/backbone.validations</a></p>
+
+<pre class="sh_coffeescript"><code>class App.FormView extends App.View
+  errors: -&gt;
+    required: 'is required'
+
+  errorMessageFor: (key, validation) -&gt;
+    @errors()[key]?[validation] || @errors()[validation]
+
+class App.Views.Movie extends App.FormView
+  errors: -&gt;
+    _.extend super,
+      name:
+        required: 'Please enter the name of the movie'
+
+class App.Models.Movie extends App.Model
+  validate:
+    name:
+      required: true</code></pre>
+
+<p class="notes">Backbone.Validations by Neal Stewart
+Nice declartive validations with basic validations built-in, and you can add
+your own. You have to add your own support for error messages</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/18">
+<h1>5. Backbone Collections</h1>
+
+<p class="notes">Backbone does not have finder class methods on its Models
+Models are aggregated by a Collection. Models can be added to a Collection one
+at a time or in bulk. When adding, a collection will recognize duplicate
+models.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/19">
+<h1>Sort your collections</h1>
+
+<ul>
+<li>Specify the comparator</li>
+<li>When you add an item, look at options.index</li>
+<li>When you remove an item, look at options.index</li>
+</ul>
+
+
+<p class="notes">You can use either sortBy 1-arg or sort 2-arg for the comparator,
+The Collection will stay in sorted order as you manipulate it</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/20">
+<h1>6. Backbone Views are not templates</h1>
+
+<p class="notes">Backbone views are code that is responisible for air-quote rendering
+air-quote the view. You should use templates with your views, and each view
+instance should render a template.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/21">
+<h1>7. Backbone Views do not render</h1>
+
+<p class="notes">Backbone does not force you to use templates, you can bind views
+directly to HTML on the page served by Rails. Or you can use templates, but you
+have to render them yourself (we will come back to this)
+Underscore.js ships with erb-like templating, or...</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/22">
+<h1>8. Use Mustache</h1>
+
+<p><a href="http://mustache.github.com">http://mustache.github.com</a></p>
+
+<p class="notes">Mustache is a logic-less templating system inspired by ctemplates
+If you really need helpers, try handlebars.js a superset of Mustache</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/23">
+<h1>Mustache Example</h1>
+
+<h2>templates/conversations/conversation.hamstache</h2>
+
+<pre><code>.count
+  %a(class='conversation' href='')
+    {{messageCount}}
+  {{#newMessageCount}}
+  .new_count
+    ({{newMessageCount}})
+  {{/newMessageCount}}
+.description
+  %a(class='conversation' href='')
+    {{between}}
+  %span.meta
+    &amp;mdash;
+    {{&gt; time}}
+%ul.actions
+  {{&gt; mute_actions}}
+</code></pre>
+
+<p class="notes">Haml + Mustache == HAMSTACHE!
+Mustache supports iteration, conditional sections, and partials</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/24">
+<h1>9. Use the Rails asset pipeline</h1>
+
+<p><a href="http://guides.rubyonrails.org/asset_pipeline.html">http://guides.rubyonrails.org/asset_pipeline.html</a></p>
+
+<p class="notes">Precompilation and compression of all your JS including templates for
+faster rendering</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/25">
+<h1>Precompile your templates!</h1>
+
+<p><a href="https://github.com/leshill/hogan_assets">https://github.com/leshill/hogan_assets</a></p>
+
+<p class="notes">You can precompile your Mustache templates to minimize client-side render times.
+Hogan is a Mustache template compiler from Twitter.
+hogan_assets uses Hogan.js to precompile all your templates in the asset pipeline
+They are served to the browser ready to render for SPEED!</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/26">
+<h1>10. Organize your code</h1>
+
+<p class="notes">Backbone makes no assumption about the layout of your code. Namespaces
+and file organization are up to you.</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/27">
+<h1>Namespace your App</h1>
+
+<h2>main.js.coffee</h2>
+
+<pre class="sh_coffeescript"><code>window.App =
+  Collections: {}
+  Models: {}
+  Presenters: {}
+  Views: {}
+
+$(-&gt;
+  # Start your app here
+)</code></pre>
+
+<p class="notes">Create a namespace for your App, App is a fine choice. Copy the Rails
+naming convention
+Or not, just use a namespace, you will thank me later</p></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="talk/01_slide/28">
+<p><img src="./file/talk/wat.jpg" alt="WAT"/></p>
+
+<h1>Presenters?</h1>
+
+<p class="notes">Presenters are not a part of Backbone, more on them later</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/29">
+<h1>File Organization</h1>
+
+<pre><code>app/
+  assets/
+    javascripts/
+      app/
+        collections/
+          { your collections here }
+        models/
+          { your models here }
+        presenters/
+          { your presenters here }
+        views/
+          posts/
+            { your views here }
+      templates
+        posts/
+          { your mustache templates here}
+</code></pre>
+
+<p class="notes">Mirror the namespace in the file organization.
+Note that templates do not need to be namespaced, but should be organized
+similarly to your views</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/30">
+<h1>11. View binding to DOM events</h1>
+
+<pre class="sh_coffeescript"><code>class App.Views.Example extends App.View
+  events:
+      'click a.cancel': 'close'
+
+  close: (event) -&gt;
+    event?.preventDefault()
+    @hide()</code></pre>
+
+<p class="notes">Backbone comes with two types of event support baked in. This is the
+events map.  The events map works like jQuery's on events-map. Specify a DOM
+event (cannot use focus/blur or change/submit/reset in IE) and a selector as
+the key and a callback method as the value
+Callback! Take a look at the first line of close(), a nice feature of CS is the
+existential operator, which can soak up nulls similar to the andand gem.</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/31">
+<h1>12. Binding to Backbone events</h1>
+
+<pre class="sh_coffeescript"><code>class App.Views.Example extends App.View
+  initialize: (options) -&gt;
+    super
+    @model.on('change', @renderAndHighlight, this)
+
+  renderAndHighlight: -&gt;
+    @render()
+    @$el.effect('highlight', 'slow')</code></pre>
+
+<p class="notes">The second type of event support is Backbone.Events.
+The Backbone classes: Model, Collection, View, Router, all fire specific events
+and your extensions can fire custom events. For example, when an attribute
+value changes on a model, Backbone.Model will fire a 'change' event</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/32">
+<h1>13. Backbone.Events</h1>
+
+<pre class="sh_coffeescript"><code>callback: (obj, value) -&gt;
+  # Do something
+
+# Start listening
+@obj.on('custom', callback, this)
+# Start listening to any event
+@obj.on('all', callback, this)
+# Stop listening
+@obj.off('custom', callback)
+
+# Trigger the event
+@obj.trigger('custom', this, value)</code></pre>
+
+<p class="notes">The Backbone.Events API is 3 simple methods, on, off, and trigger. And
+you can mix Backbone.Events directly into your own classes.</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/33">
+<h1>14. Other types of Callbacks</h1>
+
+<pre class="sh_coffeescript"><code># Using $.ajax
+jqxhr = $.ajax
+  url: '/conversations/unread'
+  dataType: 'json'
+jqxhr.done @_resync
+
+# Or using jQuery plugins
+@$('form').fileupload
+  url: @uploadUrl()
+  dataType: 'json'
+  add: @queueFile
+  done: @uploadComplete
+  fail: @uploadFailed
+  send: @uploadStarted
+  always: @uploadDone
+  replaceFileInput: false</code></pre>
+
+<p class="notes">In JavaScript everything uses callbacks. For example, the event loop, or
+$.ajax.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/34">
+<h1>Callbacks and <code>this</code></h1>
+
+<ul>
+<li><p>Everyone is bitten by <code>this</code></p></li>
+<li><p>JavaScript callbacks are invoked with a <code>this</code> parameter</p></li>
+</ul>
+
+
+<p class="notes">There is one pitfall with JavaScript callbacks. What is <code>this</code>? You
+might naively expect it to be <code>this</code> at the point the callback is defined.</p></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="talk/01_slide/35">
+<p><img src="./file/talk/mordor.jpg" alt="One does not simply callback into Mordor"/></p>
+
+<p class="notes">JavaScript closures are lexically scoped so all the names in scope at
+the point the callback is defined remain available.
+All the names except, of course, <code>this</code>. It turns out that <code>this</code> is
+controlled by the caller of the callback, and is passed as the first argument
+to apply() or call() when the callback is invoked.</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/36">
+<h1>Do not do <code>this</code></h1>
+
+<pre class="sh_coffeescript"><code># Contrived example!
+that = this
+callback = (obj, value) -&gt;
+  that.do_something()
+
+# Start listening
+@obj.on('custom', callback)</code></pre>
+
+<p class="notes">Knowing <code>this</code>, resist the temptation to work around it by saving <code>this</code> to <code>that</code>.
+Or <code>self</code> :)</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/37">
+<h1>15. Event context: View DOM Events</h1>
+
+<pre class="sh_coffeescript"><code>class App.Views.Example extends App.View
+  events:
+      'click a.cancel': 'close'
+
+  close: (event) -&gt;
+    # What is `this` inside the callback?
+    alert(this)
+    # Yes!</code></pre>
+
+<p class="notes">When using View.events, Backbone sets <code>this</code> for you to the View.</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/38">
+<h1>16. Event context: Backbone.Events</h1>
+
+<pre class="sh_coffeescript"><code>class App.Views.Example extends App.View
+  initialize: (options) -&gt;
+    super
+    @model.on('change', @renderAndHighlight)
+
+  renderAndHighlight: -&gt;
+    # What is `this` inside the callback?
+    alert(this)
+    # WAT?!</code></pre>
+
+<p class="notes">When not explicitly set as the last parameter, <code>this</code> is set to the
+triggering object or <code>@model</code> in this case</p></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="talk/01_slide/39">
+<p><img src="./file/talk/mordor.jpg" alt="One does not simply callback into Mordor"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/40">
+<h1>Event context: Backbone.Events specifying <code>this</code></h1>
+
+<pre class="sh_coffeescript"><code>class App.Views.Example extends App.View
+  initialize: (options) -&gt;
+    super
+    @model.on('change', @renderAndHighlight, this)
+
+  renderAndHighlight: -&gt;
+    # What is `this` inside the callback?
+    alert(this)
+    # High five!</code></pre>
+
+<p class="notes">The last parameter to on is the context for the callback, when trigger
+calls your callback, it will set <code>this</code> to the explicitly passed in context</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/41">
+<h1>17. The Fat Arrow</h1>
+
+<h2><code>=&gt;</code> is CoffeeScript binding magic!</h2>
+
+<pre class="sh_coffeescript"><code>getUnread: -&gt;
+  jqxhr = $.ajax
+    url: '/conversations/unread'
+    dataType: 'json'
+  jqxhr.done @_resync
+
+_resync: (data, status, jqxhr) =&gt;
+  # What is `this` inside the callback?
+  alert(this)
+  # Awwww Yeeaaa!</code></pre>
+
+<p class="notes">The fat arrow binds your method to the defining object, even if it was
+invoked as a callback, very useful and worth looking at how CoffeeScript does
+this to understand why it works</p></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="talk/01_slide/42">
+<p><img src="./file/talk/yea.jpg" alt="Awww Yeeaaa"/></p>
+
+<p>This is one of my favorite CoffeeScript features!</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/43">
+<h1>WARNING!</h1>
+
+<h1>Do not use <code>=&gt;</code> EVERYWHERE!</h1>
+
+<p class="notes">If you do, I will hunt you down, sit down at your keyboard, and type
+'gem uninstall coffeescript' Seriously, using it everywhere is a code-smell.
+The operator has a specific, very-useful, semantic meaning.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/44">
+<h1>18. Learn and use Underscore.js</h1>
+
+<p class="notes">Essential support library for JS. You should review all of its
+functionality, there are 75-ish methods. For example _.bind if you have a
+situation where you cannot use the fat arrow</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/45">
+<h1>19. Write your code with events!</h1>
+
+<pre class="sh_coffeescript"><code>class App.Collection extends Backbone.Collection
+  selectModel: (model_or_id) -&gt;
+    model = if _.isObject(model_or_id)
+      @getByCid(model_or_id.cid)
+    else
+      @get(model_or_id)
+    @trigger('select', model)</code></pre>
+
+<p class="notes">Really! Events are the heart of MVC and JavaScript in the browser is
+already event-driven
+If you take another thing away from this talk: emit an event,
+do not call a method (let the observers figure it out!)
+REMEMBER: CoffeeScript good! Events good!</p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="talk/01_slide/46">
+<h1>20. Rendering Mustache</h1>
+
+<pre class="sh_coffeescript"><code>class App.View extends Backbone.View
+  initialize: (options) -&gt;
+    super
+    if @options.template?
+      @template = @options.template
+  html: (html) -&gt;
+    @$el.html(html)
+    this
+  render: -&gt;
+    if @template?
+      @html(@renderTemplate(@template, @renderContext(), {})))
+    this
+  renderContext: -&gt;
+    @model.toJSON()
+  renderTemplate: (template, context, partials) -&gt;
+    @_template(template).render context, partials
+  _template: (template) -&gt;
+    HoganTemplates['templates/' + template]</code></pre>
+
+<p class="notes">Back to rendering (from #7)
+Take this please. Use it. Improve it. You need something like this.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/47">
+<h1>21. Presenters are a natural fit for Mustache</h1>
+
+<ul>
+<li>Mustache is logic-less and without helpers</li>
+<li>Presenter sits between the model and the template</li>
+<li>Maintains the separation between the Model and View</li>
+</ul>
+
+
+<p class="notes">Which brings us to Presenters!
+Mustache renders from a hash of names and values, Rails helper-like
+functionality has to happen before passing the hash to Mustache</p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="talk/01_slide/48">
+<h1>Presenter wraps a model</h1>
+
+<pre class="sh_coffeescript"><code>class App.Presenter
+  constructor: (model) -&gt;
+    @model = model
+    (@[key] = value unless @[key]?) for own key, value of @model.attributes
+  get: (name) -&gt;
+    @model.get(name)
+
+class App.Presenters.Movie extends App.Presenter
+  opening_weekend: -&gt;
+    '$' + format '#,##0.00', @get('opening_weekend')</code></pre>
+
+<p class="notes">Attributes are exposed directly through the Presenter, and helper like
+functionality is added to the presenter, for example formatting a number to
+currency</p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="talk/01_slide/49">
+<h1>Rendering with a Presenter</h1>
+
+<pre class="sh_coffeescript"><code>class App.View extends Backbone.View
+  initialize: (options) -&gt;
+    super
+    if @options.template?
+      @template = @options.template
+    if @options.presenter?
+      @presenter = @options.presenter
+  render: -&gt;
+    if @template?
+      @html(@renderTemplate(@template, @renderContext(), {}))
+    this
+  renderContext: -&gt;
+    if @presenter?
+      @presenter.apply this, [@model]
+    else
+      @model.toJSON()
+  renderTemplate: (template, context, partials) -&gt;
+    @_template(template).render context, partials
+  _template: (template) -&gt;
+    HoganTemplates['templates/' + template]</code></pre>
+
+<p class="notes">Minor change in initialize and renderContext, et voila! Presenters!
+Notice the apply for @presenter?</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/50">
+<h1>22. Prefer configuration via code over properties</h1>
+
+<ul>
+<li>Passed in as a callback</li>
+<li>Always set the context to the configured object</li>
+<li>Flexibility</li>
+</ul>
+
+
+<p class="notes">Properties are easy, but often limit what is being done
+Setting <code>this</code> parallels what we do with Ruby configuration objects</p></div>
+</div><div class="slide" data-transition="none"><div class="content smallest" ref="talk/01_slide/51">
+<h1>Configuring a CollectionView</h1>
+
+<pre class="sh_coffeescript"><code>class App.CollectionView extends App.View
+  initialize: (options) -&gt;
+    super
+    @view = @options.view
+  add: (model, collection, options) -&gt;
+    newView = @getView(model).show()
+    if options.index == 0
+      @container().prepend(newView.$el)
+    else
+      existingModel = @collection.at(options.index - 1)
+      existingView = @getView(existingModel)
+      existingView.$el.after(newView.$el)
+    @trigger('viewAdded', newView, model, options.index)
+  getView: (model) -&gt;
+    unless view = @viewCache.get(model)
+      view = @view.apply this, [model]
+      @viewCache.add(view)
+    view
+
+view = new App.CollectionView
+  collection: collection
+  el: $('#movie_list')
+  view: (model) -&gt;
+    new App.Views.Movie
+      model: model
+      presenter: (model) -&gt;
+        new App.Presenters.Movie(model)</code></pre>
+
+<p class="notes">The child view is defined via a callback</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/52">
+<h1>23. Use deferreds!</h1>
+
+<pre class="sh_coffeescript"><code>if jqxhr = @model.save(attrs)
+  jqxhr.always (jqxhr, status) =&gt;
+    $.rails.enableFormElements(@$('form'))
+  jqxhr.done (data, status, jqxhr) =&gt;
+    @model = null
+    @clearErrors()
+    @clearForm()</code></pre>
+
+<p class="notes">Model#save,#fetch and #destroy all return a jqxhr now</p></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="talk/01_slide/53">
+<h1>24. Rails controllers and single page apps</h1>
+
+<pre class="sh_ruby"><code>BackboneAndRails::Application.routes.draw do
+  get '/movies', to: 'movies#index'
+  get '/movies/new', to: 'movies#index'
+  get '/movies/:id', to: 'movies#index'
+  root to: 'movies#index'
+end</code></pre>
+
+<p class="notes">Support links into the app
+Use the Router to show the appropriate UI, the Rails index page needs to
+provide all data necessary</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/54">
+<h1>The Backbone Router</h1>
+
+<ul>
+<li>Updates the browser address bar</li>
+<li>Route events</li>
+<li>Completely optional</li>
+</ul>
+
+
+<p class="notes">Route events can be used to manage visibility for secondary elements of
+the UI, for example only showing left hand nav component on detail views</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/55">
+<h1>25. It is just code</h1>
+
+<p class="notes">There is a lot of code being written for the client-side now. SOLID,
+design patterns, testing practices all apply</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="talk/01_slide/56">
+<h1>Questions?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="credits/01_references">
+<h1>References</h1>
+
+<ul>
+<li><p><a href="http://backbonejs.org">Backbone.js</a></p></li>
+<li><p><a href="http://underscorejs.org">Underscore.js</a></p></li>
+<li><p><a href="http://coffeescript.org">CoffeeScript</a></p></li>
+<li><p><a href="http://destroytoday.com/blog/reasons-for-spinejs">10 Reasons why I switched to Spine.js</a></p></li>
+<li><p><a href="http://news.ycombinator.com/item?id=4003069">Response by Jeremy Ashkenas</a></p></li>
+<li><p><a href="http://www.slideshare.net/douglascrockford/6-7687067">Loopage</a></p></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="credits/02_credits">
+<h1>Photo Credits</h1>
+
+<ul>
+<li><p>JavaScript the good parts <a href="http://anongallery.org/220/javascript-the-good-parts">http://anongallery.org/220/javascript-the-good-parts</a></p></li>
+<li><p>Presenters? WAT? <a href="http://knowyourmeme.com/photos/275377-wat">http://knowyourmeme.com/photos/275377-wat</a></p></li>
+<li><p>One does not simply callback into Mordor <a href="http://memegenerator.net/instance/21487685">http://memegenerator.net/instance/21487685</a></p></li>
+<li><p>Awww Yeeaaa <a href="http://knowyourmeme.com/memes/aww-yea-guy">http://knowyourmeme.com/memes/aww-yea-guy</a></p></li>
+</ul>
+</div>
+</div></div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+.full p {
+  margin: 0;
+}
+
+.full img {
+  height: 100%;
+  width: 100%;
+}
+
+.full h1 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 8em;
+}
+
+.smallest {
+    font-size: 60%;
+}
