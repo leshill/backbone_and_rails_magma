@@ -35,8 +35,7 @@ These frameworks are seeing lots of use -- apps are going beyond unobtrusive
 
 # Your JavaScript is out of control
 
-.notes
-We always used JavaScript, now we have a lot more if it!
+.notes We always used JavaScript, now we have a lot more if it!
 Web-apps are evolving into full featured clients
 More features == more code
 
